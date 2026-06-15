@@ -15802,8 +15802,8 @@ html body #nv-hero .nv-stock-line {
 }
 </style><style id="nv-payment-badges-size-final-css">
 html body #nv-hero .nv-payment-badges {
-  width: 180px !important;
-  max-width: 48% !important;
+  width: 310px !important;
+  max-width: 86% !important;
   height: auto !important;
   display: block !important;
   margin: 6px auto 0 !important;
@@ -15812,8 +15812,8 @@ html body #nv-hero .nv-payment-badges {
 
 @media (max-width: 768px) {
   html body #nv-hero .nv-payment-badges {
-    width: 155px !important;
-    max-width: 52% !important;
+    width: 255px !important;
+    max-width: 86% !important;
     margin-top: 6px !important;
   }
 }
@@ -15822,8 +15822,8 @@ html body #nv-hero .nv-payment-badges {
   function sizePaymentBadges() {
     var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
     document.querySelectorAll('#nv-hero .nv-payment-badges').forEach(function (img) {
-      img.style.setProperty('width', isMobile ? '155px' : '180px', 'important');
-      img.style.setProperty('max-width', isMobile ? '52%' : '48%', 'important');
+      img.style.setProperty('width', isMobile ? '255px' : '310px', 'important');
+      img.style.setProperty('max-width', '86%', 'important');
       img.style.setProperty('height', 'auto', 'important');
       img.style.setProperty('display', 'block', 'important');
       img.style.setProperty('margin', '6px auto 0', 'important');
@@ -16112,5 +16112,39 @@ html body #nv-hero .nv-buy-once-link:hover {
   window.addEventListener('load', ensureBuyOnce);
   setTimeout(ensureBuyOnce, 250);
   setTimeout(ensureBuyOnce, 1000);
+})();
+</script><style id="nv-payment-badges-desktop-lock-css">
+@media (min-width: 769px) {
+  html body #nv-hero .nv-checkout-strip .nv-payment-badges,
+  html body #nv-hero .nv-checkout-strip img[src*="Alevia-Payment-Badges"] {
+    width: 310px !important;
+    max-width: 310px !important;
+    min-width: 0 !important;
+    height: auto !important;
+    display: block !important;
+    margin: 6px auto 0 !important;
+    object-fit: contain !important;
+  }
+}
+</style><script id="nv-payment-badges-desktop-lock-script">
+(function () {
+  function lockDesktopPaymentBadge() {
+    if (window.matchMedia && !window.matchMedia('(min-width: 769px)').matches) return;
+    document.querySelectorAll('#nv-hero .nv-checkout-strip .nv-payment-badges, #nv-hero .nv-checkout-strip img[src*="Alevia-Payment-Badges"]').forEach(function (img) {
+      img.style.setProperty('width', '310px', 'important');
+      img.style.setProperty('max-width', '310px', 'important');
+      img.style.setProperty('min-width', '0', 'important');
+      img.style.setProperty('height', 'auto', 'important');
+      img.style.setProperty('display', 'block', 'important');
+      img.style.setProperty('margin', '6px auto 0', 'important');
+      img.style.setProperty('object-fit', 'contain', 'important');
+    });
+  }
+
+  lockDesktopPaymentBadge();
+  window.addEventListener('load', lockDesktopPaymentBadge);
+  window.addEventListener('resize', lockDesktopPaymentBadge);
+  setTimeout(lockDesktopPaymentBadge, 300);
+  setTimeout(lockDesktopPaymentBadge, 1000);
 })();
 </script></body></html>
